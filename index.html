@@ -9,6 +9,74 @@
 <body>
     <script>
         
+        let roundWinner = ''
+        let playerScore = 0
+        let computerScore = 0
+
+    
+        function getComputerSelection()  {
+            let randomnNumber = (Math.floor(Math.random() * 3 ) + 1);
+            switch  (randomnNumber) {
+                case 1:
+                    return 'ROCK'
+                case 2:
+                    return 'PAPER'
+                case 3:
+                    return 'SCISSORS'
+            }
+        }
+        let currentComputerSelection = getComputerSelection();
+        console.log(currentComputerSelection);
+
+
+
+        function getPlayerSelection()  {
+            let currentPlayerSelection = prompt("Please enter your choice, ROCK, PAPER, OR SCISSORS").toUpperCase();
+            return currentPlayerSelection; 
+        }
+
+        let currentPlayerSelection = getPlayerSelection();
+        console.log(currentPlayerSelection);
+
+        function playRound(currentComputerSelection, currentPlayerSelection)  {
+            
+            if  (
+                (currentComputerSelection === currentPlayerSelection)
+            )
+                {
+                    let roundWinner = 'tie';
+                    console.log(roundWinner);
+                }
+
+            if  (
+                (currentComputerSelection === 'ROCK'  && currentPlayerSelection === 'SCISSORS') ||
+                (currentComputerSelection === 'PAPER'  && currentPlayerSelection === 'ROCK') ||
+                (currentComputerSelection === 'SCISSORS'  && currentPlayerSelection === 'PAPER')
+            )
+                {
+                let roundWinner = 'computer';
+                console.log(roundWinner);
+                }
+            
+            if  (
+                (currentPlayerSelection === 'ROCK' && currentComputerSelection === 'SCISSORS') ||
+                (currentPlayerSelection === 'PAPER' && currentComputerSelection === 'ROCK') ||
+                (currentPlayerSelection === 'SCISSORS' && currentComputerSelection === 'PAPER')
+            )
+                {
+                let roundWinner = 'player';
+                console.log(roundWinner);
+                }
+        
+        return roundWinner;
+        }
+
+        let currentRoundWinner = playRound(currentComputerSelection, currentPlayerSelection);
+        console.log(currentRoundWinner);
+        
+        
+
+
     </script>
 </body>
 </html>
